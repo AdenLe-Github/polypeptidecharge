@@ -47,13 +47,3 @@ def formattingmrna(filename):
                 
 
     return emptydict
-
-
-
-
-def controlpanel():
-    mrnadictionary = formattingmrna("inputcode/mrnatranscripts\mrna.txt")
-    print(mrnadictionary.keys())
-
-
-controlpanel()
