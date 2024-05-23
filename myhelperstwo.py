@@ -1,6 +1,3 @@
-dict1 = {'YAL067C': 'CAAAGAGAACTACTGCATATATAAATAACATACAATGTATTCAATTGTTAAAGAGATTATTGTAGATCCTT', 'YAL064W-B': 'AAAACACAGTACCTCGAAACAAACTCTATGTAAACACTTATTTTATTGTGGTAATATTTTTTGATAACAACACATCTGAAACAAAATAATGCAAAGCCG'}
-dict2 = {'YAL067C': 5, 'YAL064W-B': 6}
-
 from codonchartimport import *
 
 def checkifgenesalign(mrna,utr):
@@ -27,8 +24,8 @@ def removeutrregions(mrnadict, utrdict):
     return mrnadict
 
 def firstxnucleotides(transcript):
-    nucleotidenumber = 60
-    return transcript[:60]
+    nucleotidenumber = 9
+    return transcript[:nucleotidenumber]
 
 def aminoacidtranslation(transcript):
 
@@ -42,11 +39,11 @@ def aminoacidtranslation(transcript):
         return mycodonchart[tripletsequence] + aminoacidtranslation(transcript[3:])
         
     
-
+"""
 def main():
 
     maturernadict = removeutrregions(dict1, dict2)
     for key, value in maturernadict.items():
         print(aminoacidtranslation(value))
 
-main()
+main()"""

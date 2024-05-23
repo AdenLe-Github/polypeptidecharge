@@ -87,6 +87,7 @@ def formatting_utr(filename):
                 index = secondmatch.start()
                 line = line[:index].strip()
                 emptylist.append(int(line))
+            
 
             else:
                 continue
@@ -95,7 +96,6 @@ def formatting_utr(filename):
 
     with open(filename, "r") as insidefile:
         for line in insidefile:
-
             if "UTR5" in line:
                 count += 1
                 #finds the first white space character from the left
