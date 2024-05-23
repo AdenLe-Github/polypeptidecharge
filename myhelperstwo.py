@@ -24,7 +24,7 @@ def removeutrregions(mrnadict, utrdict):
     return mrnadict
 
 def firstxnucleotides(transcript):
-    nucleotidenumber = 9
+    nucleotidenumber = 60
     return transcript[:nucleotidenumber]
 
 def aminoacidtranslation(transcript):
