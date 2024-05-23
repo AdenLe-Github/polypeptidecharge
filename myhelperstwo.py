@@ -27,23 +27,32 @@ def firstxnucleotides(transcript):
     nucleotidenumber = 60
     return transcript[:nucleotidenumber]
 
-def aminoacidtranslation(transcript):
+def aminoacidtranslationforcharge(transcript):
 
-    mycodonchart = codonchart()
+    mycodonchart = codonchartcharge()
     tripletsequence = transcript[:3]
     
     if len(tripletsequence) == 0:
         return 0
 
     elif len(tripletsequence) == 3:
-        return mycodonchart[tripletsequence] + aminoacidtranslation(transcript[3:])
+        return mycodonchart[tripletsequence] + aminoacidtranslationforcharge(transcript[3:])
+
+
+def aminoacidtranslationforpolypeptide(transcript):
+    mycodonchart = codonchartregular()
+    tripletsequence = transcript[:3]
+    if len(tripletsequence) == 0:
+        return []
+    
+    elif len(tripletsequence) == 3:
+        polypeptidechain = [mycodonchart[tripletsequence]]
+        polypeptidechain.extend(aminoacidtranslationforpolypeptide(transcript[3:]))
+        return polypeptidechain
+    
+
+
+
+    
         
     
-"""
-def main():
-
-    maturernadict = removeutrregions(dict1, dict2)
-    for key, value in maturernadict.items():
-        print(aminoacidtranslation(value))
-
-main()"""

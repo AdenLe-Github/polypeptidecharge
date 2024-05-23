@@ -15,18 +15,22 @@ def controlpanel():
         spacer()
         for key, value in maturedmrnadictionary.items():
             maturedmrnadictionary[key] = firstxnucleotides(value)
-            maturedmrnadictionary[key] = aminoacidtranslationforcharge(maturedmrnadictionary[key])
+            maturedmrnadictionary[key] = aminoacidtranslationforpolypeptide(maturedmrnadictionary[key])
 
-        with open("outputcode/output.txt", "w") as outputfile:
-            outputfile.write("Gene name, Transcript overall charge")
-            for key, value in maturedmrnadictionary.items():
-                outputfile.write("\n")
-                outputfile.write(f"{key}, {value}")
-        
+        with open("outputcode/outputvalidate.txt", "w") as outputfile:
+                emptyset = set()
+                for key, value in maturedmrnadictionary.items():
+                    emptyset.add(value[0])
+                    outputfile.write("\n")
+                    outputfile.write(f"{key}, {value}")
+
+                print(emptyset)
+
 
     else:
         print("The genes do not align: ERROR")
         exit()
+
 
 
 
