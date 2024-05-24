@@ -24,11 +24,12 @@ def removeutrregions(mrnadict, utrdict):
     return mrnadict
 
 def firstxnucleotides(transcript):
+    #This returns the given transcript with the first "x" amount of nucleotides
     nucleotidenumber = 60
     return transcript[:nucleotidenumber]
 
 def aminoacidtranslationforcharge(transcript):
-
+    #Uses the imported codon chart to give the overall charge for the given transcript
     mycodonchart = codonchartcharge()
     tripletsequence = transcript[:3]
     
@@ -40,6 +41,7 @@ def aminoacidtranslationforcharge(transcript):
 
 
 def aminoacidtranslationforpolypeptide(transcript):
+    #Returns a list with all of the translated amino acids from the given transcript
     mycodonchart = codonchartregular()
     tripletsequence = transcript[:3]
     if len(tripletsequence) == 0:
