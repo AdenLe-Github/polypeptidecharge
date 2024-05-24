@@ -29,7 +29,7 @@ def controlpanel():
             #Translates the sequence and gives the overall charge for the "x" amount of amino acids
             maturedmrnadictionary[key] = aminoacidtranslationforcharge(maturedmrnadictionary[key])
 
-        with open("outputcode/output.txt", "w") as outputfile:
+        with open("outputdata/output.txt", "w") as outputfile:
             outputfile.write("Gene name, Transcript overall charge")
             for key, value in maturedmrnadictionary.items():
                 outputfile.write("\n")

@@ -26,7 +26,7 @@ def controlpanel():
             maturedmrnadictionary[key] = aminoacidtranslationforpolypeptide(maturedmrnadictionary[key])
 
         #Writes the new data in another file
-        with open("outputcode/outputvalidate.txt", "w") as outputfile:
+        with open("outputdata/outputvalidate.txt", "w") as outputfile:
                 emptyset = set()
                 validationset = set("M")
                 for key, value in maturedmrnadictionary.items():

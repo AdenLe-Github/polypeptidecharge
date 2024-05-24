@@ -13,7 +13,7 @@ def retrieve_mrna():
     print("\n\n\n")
 
     #If the inputcode or the mrnatranscript file have been altered, the folder_path must be changed
-    folder_path = "inputcode/mrnatranscripts"
+    folder_path = "inputdata/mrnatranscripts"
     file_name = input("Input the filename containing the mRNA transcript, make sure to include the \nfile type in the end, (ex: filename.txt): ")
     
     file_exists = check_file_in_folder(folder_path, file_name)
@@ -56,7 +56,7 @@ def retrieve_utr():
     print("\n\n\n")
 
     #If the inputcode or the mrnatranscript file have been altered, the folder_path must be changed
-    folder_path = "inputcode/utrregions"
+    folder_path = "inputdata/utrregions"
     file_name = input("Input the filename containing the utrregion information, make sure to include the \nfile type in the end, (ex: filename.txt): ")
     
     file_exists = check_file_in_folder(folder_path, file_name)
