@@ -1,6 +1,6 @@
 from helperfunctions.myhelpers import *
 from helperfunctions.myhelperstwo import *
-from codonchartimport import *
+from helperfunctions.codonchartimport import *
 import os
 def spacer():
     #Function for visual clarity

@@ -1,6 +1,6 @@
 from helperfunctions.myhelpers import *
 from helperfunctions.myhelperstwo import *
-from codonchartimport import *
+from helperfunctions.codonchartimport import *
 import os
 
 """This code processes the data for the output that we are interested in, the overall charge of the polypetide chain

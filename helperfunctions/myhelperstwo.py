@@ -1,4 +1,4 @@
-from codonchartimport import *
+from helperfunctions.codonchartimport import *
 
 def checkifgenesalign(mrna,utr):
     #This is to check if both of the files have the exactly the same number and gene types
