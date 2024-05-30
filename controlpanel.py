@@ -51,8 +51,8 @@ def controlpanel():
             aminoacidcount = firstxaminoacidinput()
             spacer()
             #Asks for the function you would like to perform
-            branchone = input("What function would you like to perform?\n\n - Sequence the \"x\" nucleotides (A): \n - Calculate the overall charge of the sequence for \"x\" nucleotides (B): \n - Calculate the molecular weight for \"x\" nucleotides (C):")
-            
+            print("What function would you like to perform?\n\n - Sequence the \"x\" nucleotides (A): \n - Calculate the overall charge of the sequence for \"x\" nucleotides (B): \n - Calculate the molecular weight for \"x\" nucleotides (C):  \n - Calculate the molecular volume for \"x\" nucleotides (D):  \n - Calculate the molecular hydropathy for \"x\" nucleotides (E): ")
+            branchone = input("")
             if branchone.lower() == "a":
                 #Sequences the transcript for the first "x" amino acids
                 for key, value in maturedmrnadictionary.items():
@@ -109,6 +109,36 @@ def controlpanel():
                 output_file_name = input("Enter the output file name (without extension): ")
                 with open(f"outputdata/{output_file_name}.txt", "w") as outputfile:
                     outputfile.write("Gene name, Transcript overall size")
+                    for key, value in maturedmrnadictionary.items():
+                        outputfile.write("\n")
+                        outputfile.write(f"{key}, {value}")
+
+                switch = switchcheck()
+
+            elif branchone.lower() == "d":
+                for key, value in maturedmrnadictionary.items():
+                    #isolates the first "x" nucleotides
+                    maturedmrnadictionary[key] = firstxnucleotides(value, aminoacidcount)
+                    #Translates the sequence and gives the overall charge for the "x" amount of amino acids
+                    maturedmrnadictionary[key] = aminoacidtranslationformass(maturedmrnadictionary[key])
+                #Writes the new data in another file
+                output_file_name = input("Enter the output file name (without extension): ")
+                with open(f"outputdata/{output_file_name}.txt", "w") as outputfile:
+                    outputfile.write("Gene name, Transcript overall mass")
+                    for key, value in maturedmrnadictionary.items():
+                        outputfile.write("\n")
+                        outputfile.write(f"{key}, {value}")
+
+            elif branchone.lower() == "e":
+                for key, value in maturedmrnadictionary.items():
+                    #isolates the first "x" nucleotides
+                    maturedmrnadictionary[key] = firstxnucleotides(value, aminoacidcount)
+                    #Translates the sequence and gives the overall charge for the "x" amount of amino acids
+                    maturedmrnadictionary[key] = aminoacidtranslationforhydropathy(maturedmrnadictionary[key])
+                #Writes the new data in another file
+                output_file_name = input("Enter the output file name (without extension): ")
+                with open(f"outputdata/{output_file_name}.txt", "w") as outputfile:
+                    outputfile.write("Gene name, Transcript overall hydropathy")
                     for key, value in maturedmrnadictionary.items():
                         outputfile.write("\n")
                         outputfile.write(f"{key}, {value}")

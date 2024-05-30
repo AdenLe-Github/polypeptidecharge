@@ -69,6 +69,29 @@ def aminoacidtranslationforsize(transcript):
     elif len(tripletsequence) == 3:
         return mycodonchart[tripletsequence] + aminoacidtranslationforsize(transcript[3:])
 
+def aminoacidtranslationforhydropathy(transcript):
+    #Uses the imported codon chart to give the overall charge for the given transcript
+    mycodonchart = codoncharthydro()
+    tripletsequence = transcript[:3]
+    
+    if len(tripletsequence) == 0:
+        return 0
+
+    elif len(tripletsequence) == 3:
+        return mycodonchart[tripletsequence] + aminoacidtranslationforhydropathy(transcript[3:])
+    
+def aminoacidtranslationformass(transcript):
+    #Uses the imported codon chart to give the overall charge for the given transcript
+    mycodonchart = codonchartmass()
+    tripletsequence = transcript[:3]
+    
+    if len(tripletsequence) == 0:
+        return 0
+
+    elif len(tripletsequence) == 3:
+        return mycodonchart[tripletsequence] + aminoacidtranslationformass(transcript[3:])
+
+
     
 
 
