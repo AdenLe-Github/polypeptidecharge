@@ -23,9 +23,15 @@ def removeutrregions(mrnadict, utrdict):
 
     return mrnadict
 
-def firstxnucleotides(transcript):
+def firstxaminoacidinput():
     #This returns the given transcript with the first "x" amount of nucleotides
-    nucleotidenumber = 60
+    aminoacid = int(input("Amino acids do you want to analyze?"))
+    return aminoacid
+
+
+def firstxnucleotides(transcript, aminoacidcount):
+    #This returns the given transcript with the first "x" amount of nucleotides
+    nucleotidenumber = aminoacidcount * 3
     return transcript[:nucleotidenumber]
 
 def aminoacidtranslationforcharge(transcript):
@@ -51,6 +57,41 @@ def aminoacidtranslationforpolypeptide(transcript):
         polypeptidechain = [mycodonchart[tripletsequence]]
         polypeptidechain.extend(aminoacidtranslationforpolypeptide(transcript[3:]))
         return polypeptidechain
+    
+def aminoacidtranslationforsize(transcript):
+    #Uses the imported codon chart to give the overall charge for the given transcript
+    mycodonchart = codonchartsize()
+    tripletsequence = transcript[:3]
+    
+    if len(tripletsequence) == 0:
+        return 0
+
+    elif len(tripletsequence) == 3:
+        return mycodonchart[tripletsequence] + aminoacidtranslationforsize(transcript[3:])
+
+def aminoacidtranslationforhydropathy(transcript):
+    #Uses the imported codon chart to give the overall charge for the given transcript
+    mycodonchart = codoncharthydro()
+    tripletsequence = transcript[:3]
+    
+    if len(tripletsequence) == 0:
+        return 0
+
+    elif len(tripletsequence) == 3:
+        return mycodonchart[tripletsequence] + aminoacidtranslationforhydropathy(transcript[3:])
+    
+def aminoacidtranslationformass(transcript):
+    #Uses the imported codon chart to give the overall charge for the given transcript
+    mycodonchart = codonchartmass()
+    tripletsequence = transcript[:3]
+    
+    if len(tripletsequence) == 0:
+        return 0
+
+    elif len(tripletsequence) == 3:
+        return mycodonchart[tripletsequence] + aminoacidtranslationformass(transcript[3:])
+
+
     
 
 
