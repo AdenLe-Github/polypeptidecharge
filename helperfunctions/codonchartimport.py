@@ -26,8 +26,8 @@ def codonchartcharge():
         'CCC': 0,    # Proline
         'CCG': 0,    # Proline
         'CCT': 0,    # Proline
-        'CAC': 1,    # Histidine
-        'CAT': 1,    # Histidine
+        'CAC': 0,    # Histidine
+        'CAT': 0,    # Histidine
         'CAA': 0,    # Glutamine
         'CAG': 0,    # Glutamine
         'CGA': 1,    # Arginine

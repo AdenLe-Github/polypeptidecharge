@@ -51,7 +51,7 @@ def controlpanel():
             aminoacidcount = firstxaminoacidinput()
             spacer()
             #Asks for the function you would like to perform
-            print("What function would you like to perform?\n\n - Sequence the \"x\" nucleotides (A): \n - Calculate the overall charge of the sequence for \"x\" nucleotides (B): \n - Calculate the molecular weight for \"x\" nucleotides (C):  \n - Calculate the molecular volume for \"x\" nucleotides (D):  \n - Calculate the molecular hydropathy for \"x\" nucleotides (E): ")
+            print("What function would you like to perform?\n\n - Sequence the \"x\" nucleotides (A): \n - Calculate the overall charge of the sequence for \"x\" nucleotides (B): \n - Calculate the molecular volume (C):  \n - Calculate the molecular weight for \"x\" nucleotides (D):  \n - Calculate the molecular hydropathy for \"x\" nucleotides (E): ")
             branchone = input("")
             if branchone.lower() == "a":
                 #Sequences the transcript for the first "x" amino acids
