@@ -10,14 +10,33 @@ def check_file_in_folder(folder, filename):
 
 def retrieve_mrna():
     #Used to retrieve the mRNA file if it exists and the folder_path is correct
-    print("\n\n\n")
+    switch = True
+    print("\n\n")
 
     #If the inputcode or the mrnatranscript file have been altered, the folder_path must be changed
     folder_path = "inputdata/mrnatranscripts"
-    file_name = input("Input the filename containing the mRNA transcript, make sure to include the \nfile type in the end, (ex: filename.txt): ")
+    print("Input the filename containing the mRNA transcript, make sure to include the \nfile type in the end, (ex: filename.txt): ")
+    print("\n\n")
+    file_name = input("")
     
     file_exists = check_file_in_folder(folder_path, file_name)
     print(f"File '{file_name}' exists: {file_exists[0]}")
+    
+
+    while switch == True:
+        if file_exists[0] == False:
+            print("The file does not exist")
+            user_decision = input("Would you like to quit (N) or put in a different file? (Y)")
+            if user_decision.lower() == "n":
+                print("Thank you for using my program, have a good day!")
+                exit()
+            
+            elif user_decision.lower() == "y":
+                retrieve_mrna()
+            
+            else:
+                print("Command was not eligible, try again")
+                
 
     return file_exists[1]
 
